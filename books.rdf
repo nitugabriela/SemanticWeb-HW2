@@ -1,0 +1,11 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:j.0="http://example.org/book_recommender#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" > 
+  <rdf:Description rdf:about="http://example.org/book_recommender#Harry_Potter">
+    <j.0:suitableForReadingLevel>Intermediate</j.0:suitableForReadingLevel>
+    <j.0:hasTheme>Fantasy</j.0:hasTheme>
+    <rdfs:label>Harry Potter</rdfs:label>
+    <rdf:type rdf:resource="http://example.org/book_recommender#Book"/>
+  </rdf:Description>
+</rdf:RDF>

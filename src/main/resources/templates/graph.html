@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semantic Web - RDF Visualizer</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            max-width: 90%;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .upload-card {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        input[type="file"] {
+            display: block;
+            margin: 0 auto 1rem auto;
+        }
+        button {
+            background-color: #0056b3;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #004494;
+        }
+        .error-message {
+            color: #dc3545;
+            background-color: #f8d7da;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            border: 1px solid #f5c6cb;
+        }
+        .graph-container {
+            background: #fff;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+            overflow: auto;
+            max-height: 85vh;
+            width: 100%;
+            cursor: grab;
+        }
+        .graph-container:active {
+            cursor: grabbing;
+        }
+        .graph-container img {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>RDF Graph Visualizer</h1>
+    <p>Upload an RDF/XML file to visualize its structure.</p>
+</div>
+
+<div class="upload-card">
+
+    <div th:if="${error != null}" class="error-message">
+        <span th:text="${error}"></span>
+    </div>
+
+    <form method="POST" enctype="multipart/form-data" action="/upload">
+        <div class="form-group">
+            <input type="file" name="file" accept=".rdf, .xml" required />
+        </div>
+        <button type="submit">Upload & Visualize</button>
+    </form>
+
+    <br/>
+    <a href="/books"><button type="button">All Books</button></a>
+    <a href="/books/manage"><button type="button">Manage Books</button></a>
+</div>
+
+<div class="graph-container" th:if="${graphImage != null}">
+    <img th:src="${graphImage}" alt="RDF Graph visualized by Jung API" />
+</div>
+
+</body>
+</html>

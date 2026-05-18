@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>All Books</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #f4f7f6; color: #333; max-width: 860px; margin: 0 auto; padding: 2rem; }
+        h1 { text-align: center; margin-bottom: 2rem; }
+        .card { background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 2rem; }
+        nav { text-align: center; margin-bottom: 1.5rem; }
+        nav a { color: #0056b3; text-decoration: none; font-weight: 600; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid #eee; }
+        th { background: #0056b3; color: white; }
+        tr:hover { background: #f0f4ff; }
+        a.detail-link { color: #0056b3; text-decoration: none; font-weight: 600; }
+        a.detail-link:hover { text-decoration: underline; }
+        .error { background: #f8d7da; color: #721c24; padding: 10px; border-radius: 4px; border: 1px solid #f5c6cb; }
+    </style>
+</head>
+<body>
+
+<nav><a href="/">Back to RDF Visualizer</a></nav>
+<h1>All Books</h1>
+
+<div th:if="${error}" class="error" th:text="${error}"></div>
+
+<div class="card">
+    <table>
+        <thead>
+        <tr>
+            <th>Title</th>
+            <th>Details</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="book : ${books}">
+            <td th:text="${book['label']}">Title</td>
+            <td>
+                <a class="detail-link"
+                   th:href="@{/books/detail(uri=${book['uri']})}">
+                    View Details
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

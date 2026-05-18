@@ -17,7 +17,7 @@ public class RdfGraphController {
         this.rdfGraphService = rdfGraphService;
     }
 
-    @GetMapping("/")
+    @GetMapping("/graph")
     public String index() {
         return "graph";
     }

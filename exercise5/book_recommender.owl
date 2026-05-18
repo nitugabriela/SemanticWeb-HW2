@@ -1,0 +1,160 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://example.org/book_recommender#"
+     xml:base="http://example.org/book_recommender"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:ex="http://example.org/book_recommender#">
+
+    <owl:Ontology rdf:about="http://example.org/book_recommender"/>
+
+    <owl:Class rdf:about="ex:Book">
+        <rdfs:label>Book</rdfs:label>
+        <rdfs:comment>A book in the recommendation system.</rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="ex:User">
+        <rdfs:label>User</rdfs:label>
+        <rdfs:comment>A user who can receive book recommendations.</rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="ex:Theme">
+        <rdfs:label>Theme</rdfs:label>
+        <rdfs:comment>A genre or theme a book can belong to.</rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="ex:ReadingLevel">
+        <rdfs:label>ReadingLevel</rdfs:label>
+        <rdfs:comment>A reading difficulty level: Beginner, Intermediate, or Advanced.</rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="ex:RecommendedBook">
+        <rdfs:label>RecommendedBook</rdfs:label>
+        <rdfs:comment>A book recommended to a user: matches both preferred theme and reading level.</rdfs:comment>
+        <rdfs:subClassOf rdf:resource="ex:Book"/>
+    </owl:Class>
+
+    <owl:ObjectProperty rdf:about="ex:prefersTheme">
+        <rdfs:label>prefersTheme</rdfs:label>
+        <rdfs:domain rdf:resource="ex:User"/>
+        <rdfs:range  rdf:resource="ex:Theme"/>
+        <rdfs:comment>Links a user to their preferred theme.</rdfs:comment>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="ex:hasTheme">
+        <rdfs:label>hasTheme</rdfs:label>
+        <rdfs:domain rdf:resource="ex:Book"/>
+        <rdfs:range  rdf:resource="ex:Theme"/>
+        <rdfs:comment>Links a book to its theme.</rdfs:comment>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="ex:hasReadingLevel">
+        <rdfs:label>hasReadingLevel</rdfs:label>
+        <rdfs:domain rdf:resource="ex:User"/>
+        <rdfs:range  rdf:resource="ex:ReadingLevel"/>
+        <rdfs:comment>Links a user to their reading level.</rdfs:comment>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="ex:suitableForReadingLevel">
+        <rdfs:label>suitableForReadingLevel</rdfs:label>
+        <rdfs:domain rdf:resource="ex:Book"/>
+        <rdfs:range  rdf:resource="ex:ReadingLevel"/>
+        <rdfs:comment>Links a book to the reading level it is suitable for.</rdfs:comment>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="ex:isRecommended">
+        <rdfs:label>isRecommended</rdfs:label>
+        <rdfs:domain rdf:resource="ex:User"/>
+        <rdfs:range  rdf:resource="ex:RecommendedBook"/>
+        <rdfs:comment>Links a user to a book recommended for them.</rdfs:comment>
+    </owl:ObjectProperty>
+
+    <owl:NamedIndividual rdf:about="ex:Beginner">
+        <rdf:type rdf:resource="ex:ReadingLevel"/>
+        <rdfs:label>Beginner</rdfs:label>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="ex:Intermediate">
+        <rdf:type rdf:resource="ex:ReadingLevel"/>
+        <rdfs:label>Intermediate</rdfs:label>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="ex:Advanced">
+        <rdf:type rdf:resource="ex:ReadingLevel"/>
+        <rdfs:label>Advanced</rdfs:label>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="ex:ScienceFiction">
+        <rdf:type rdf:resource="ex:Theme"/>
+        <rdfs:label>Science Fiction</rdfs:label>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="ex:Fantasy">
+        <rdf:type rdf:resource="ex:Theme"/>
+        <rdfs:label>Fantasy</rdfs:label>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="ex:Mystery">
+        <rdf:type rdf:resource="ex:Theme"/>
+        <rdfs:label>Mystery</rdfs:label>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="ex:Murder">
+        <rdf:type rdf:resource="ex:Theme"/>
+        <rdfs:label>Murder</rdfs:label>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="ex:Alice">
+        <rdf:type rdf:resource="ex:User"/>
+        <rdfs:label>Alice</rdfs:label>
+        <ex:hasReadingLevel rdf:resource="ex:Intermediate"/>
+        <ex:prefersTheme    rdf:resource="ex:ScienceFiction"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="ex:Bob">
+        <rdf:type rdf:resource="ex:User"/>
+        <rdfs:label>Bob</rdfs:label>
+        <ex:hasReadingLevel rdf:resource="ex:Beginner"/>
+        <ex:prefersTheme    rdf:resource="ex:Mystery"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="ex:Dune">
+        <rdf:type rdf:resource="ex:Book"/>
+        <rdfs:label>Dune</rdfs:label>
+        <ex:hasTheme                rdf:resource="ex:ScienceFiction"/>
+        <ex:hasTheme                rdf:resource="ex:Fantasy"/>
+        <ex:suitableForReadingLevel rdf:resource="ex:Advanced"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="ex:TheSilentPatient">
+        <rdf:type rdf:resource="ex:Book"/>
+        <rdfs:label>The Silent Patient</rdfs:label>
+        <ex:hasTheme                rdf:resource="ex:Mystery"/>
+        <ex:hasTheme                rdf:resource="ex:Murder"/>
+        <ex:suitableForReadingLevel rdf:resource="ex:Intermediate"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="ex:HungerGames">
+        <rdf:type rdf:resource="ex:Book"/>
+        <rdfs:label>Hunger Games</rdfs:label>
+        <ex:hasTheme                rdf:resource="ex:ScienceFiction"/>
+        <ex:hasTheme                rdf:resource="ex:Fantasy"/>
+        <ex:suitableForReadingLevel rdf:resource="ex:Beginner"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="ex:HungerGames_RecommendedForBob">
+        <rdf:type rdf:resource="ex:RecommendedBook"/>
+        <rdfs:label>Hunger Games (Recommended for Bob)</rdfs:label>
+        <ex:hasTheme                rdf:resource="ex:ScienceFiction"/>
+        <ex:hasTheme                rdf:resource="ex:Fantasy"/>
+        <ex:suitableForReadingLevel rdf:resource="ex:Beginner"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="ex:Bob_recommendation">
+        <rdf:type rdf:resource="ex:User"/>
+        <rdfs:label>Bob</rdfs:label>
+        <ex:isRecommended rdf:resource="ex:HungerGames_RecommendedForBob"/>
+    </owl:NamedIndividual>
+
+</rdf:RDF>

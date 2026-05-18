@@ -1,0 +1,41 @@
+SELECT ?bookLabel ?readingLevel
+WHERE {
+    ?book a <http://example.org/book_recommender#Book> .
+    ?book <http://www.w3.org/2000/01/rdf-schema#label> ?bookLabel .
+    ?book <http://example.org/book_recommender#suitableForReadingLevel> ?level .
+    ?level <http://www.w3.org/2000/01/rdf-schema#label> ?readingLevel .
+}
+
+
+SELECT ?userName ?theme ?readingLevel
+WHERE {
+    ?user a <http://example.org/book_recommender#User> .
+    ?user <http://www.w3.org/2000/01/rdf-schema#label> ?userName .
+    ?user <http://example.org/book_recommender#prefersTheme> ?t .
+    ?t <http://www.w3.org/2000/01/rdf-schema#label> ?theme .
+    ?user <http://example.org/book_recommender#hasReadingLevel> ?level .
+    ?level <http://www.w3.org/2000/01/rdf-schema#label> ?readingLevel .
+}
+
+
+SELECT ?bookLabel
+WHERE {
+    ?book a <http://example.org/book_recommender#Book> .
+    ?book <http://www.w3.org/2000/01/rdf-schema#label> ?bookLabel .
+    ?book <http://example.org/book_recommender#hasTheme> <http://example.org/book_recommender#ScienceFiction> .
+}
+
+
+SELECT ?bookLabel
+WHERE {
+    ?book a <http://example.org/book_recommender#Book> .
+    ?book <http://www.w3.org/2000/01/rdf-schema#label> ?bookLabel .
+    ?book <http://example.org/book_recommender#suitableForReadingLevel> <http://example.org/book_recommender#Beginner> .
+}
+
+
+SELECT ?className
+WHERE {
+    ?class a <http://www.w3.org/2002/07/owl#Class> .
+    ?class <http://www.w3.org/2000/01/rdf-schema#label> ?className .
+}

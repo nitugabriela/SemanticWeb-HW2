@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:ex="http://example.org/book_recommender#">
+
+    <rdf:Description rdf:about="http://example.org/book_recommender#Alice">
+        <rdf:type rdf:resource="http://example.org/book_recommender#User"/>
+        <rdfs:label>Alice</rdfs:label>
+        <ex:hasReadingLevel>Intermediate</ex:hasReadingLevel>
+        <ex:prefersTheme>Science Fiction</ex:prefersTheme>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="http://example.org/book_recommender#Bob">
+        <rdf:type rdf:resource="http://example.org/book_recommender#User"/>
+        <rdfs:label>Bob</rdfs:label>
+        <ex:hasReadingLevel>Beginner</ex:hasReadingLevel>
+        <ex:prefersTheme>Mystery</ex:prefersTheme>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="http://example.org/book_recommender#Dune">
+        <rdf:type rdf:resource="http://example.org/book_recommender#Book"/>
+        <rdfs:label>Dune</rdfs:label>
+        <ex:hasTheme>Science Fiction</ex:hasTheme>
+        <ex:hasTheme>Fantasy</ex:hasTheme>
+        <ex:suitableForReadingLevel>Advanced</ex:suitableForReadingLevel>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="http://example.org/book_recommender#The_Silent_Patient">
+        <rdf:type rdf:resource="http://example.org/book_recommender#Book"/>
+        <rdfs:label>The Silent Patient</rdfs:label>
+        <ex:hasTheme>Mystery</ex:hasTheme>
+        <ex:hasTheme>Murder</ex:hasTheme>
+        <ex:suitableForReadingLevel>Intermediate</ex:suitableForReadingLevel>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="http://example.org/book_recommender#Hunger_Games">
+        <rdf:type rdf:resource="http://example.org/book_recommender#Book"/>
+        <rdfs:label>Hunger Games</rdfs:label>
+        <ex:hasTheme>Science Fiction</ex:hasTheme>
+        <ex:hasTheme>Fantasy</ex:hasTheme>
+        <ex:suitableForReadingLevel>Beginner</ex:suitableForReadingLevel>
+    </rdf:Description>
+
+</rdf:RDF>

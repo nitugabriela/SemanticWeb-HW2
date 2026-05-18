@@ -1,0 +1,25 @@
+<div th:fragment="chat" xmlns:th="http://www.thymeleaf.org">
+
+    <link rel="stylesheet" th:href="@{/css/chatbot.css}">
+    <script th:src="@{/js/chatbot.js}" defer></script>
+
+    <button id="chat-open-btn" class="chat-open-btn">Chat with AI</button>
+
+    <div id="chat-widget" class="chat-widget">
+        <div class="chat-header">
+            <span>Library AI Assistant</span>
+            <button id="chat-close-btn">X</button>
+        </div>
+
+        <div id="chat-messages" class="chat-messages">
+            <div class="chat-message bot">Hello! I am your AI assistant. How can I help you find a book today?</div>
+        </div>
+
+        <div id="chat-starters" class="chat-starters"></div>
+
+        <div class="chat-input-area">
+            <input type="text" id="chat-user-input" placeholder="Ask a question...">
+            <button id="chat-send-btn">Send</button>
+        </div>
+    </div>
+</div>

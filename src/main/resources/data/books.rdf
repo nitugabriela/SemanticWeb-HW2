@@ -21,6 +21,7 @@
     <rdf:Description rdf:about="http://example.org/book_recommender#Dune">
         <rdf:type rdf:resource="http://example.org/book_recommender#Book"/>
         <rdfs:label>Dune</rdfs:label>
+        <ex:hasAuthor>Frank Herbert</ex:hasAuthor>
         <ex:hasTheme>Science Fiction</ex:hasTheme>
         <ex:hasTheme>Fantasy</ex:hasTheme>
         <ex:suitableForReadingLevel>Advanced</ex:suitableForReadingLevel>
@@ -29,6 +30,7 @@
     <rdf:Description rdf:about="http://example.org/book_recommender#The_Silent_Patient">
         <rdf:type rdf:resource="http://example.org/book_recommender#Book"/>
         <rdfs:label>The Silent Patient</rdfs:label>
+        <ex:hasAuthor>Alex Michaelides</ex:hasAuthor>
         <ex:hasTheme>Mystery</ex:hasTheme>
         <ex:hasTheme>Murder</ex:hasTheme>
         <ex:suitableForReadingLevel>Intermediate</ex:suitableForReadingLevel>
@@ -37,9 +39,19 @@
     <rdf:Description rdf:about="http://example.org/book_recommender#Hunger_Games">
         <rdf:type rdf:resource="http://example.org/book_recommender#Book"/>
         <rdfs:label>Hunger Games</rdfs:label>
+        <ex:hasAuthor>Suzanne Collins</ex:hasAuthor>
         <ex:hasTheme>Science Fiction</ex:hasTheme>
         <ex:hasTheme>Fantasy</ex:hasTheme>
         <ex:suitableForReadingLevel>Beginner</ex:suitableForReadingLevel>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="http://example.org/book_recommender#Harry_Potter">
+        <rdf:type rdf:resource="http://example.org/book_recommender#Book"/>
+        <rdfs:label>Harry Potter</rdfs:label>
+        <ex:hasAuthor>J.K. Rowling</ex:hasAuthor>
+        <ex:hasTheme>Fantasy</ex:hasTheme>
+        <ex:hasTheme>Adventure</ex:hasTheme>
+        <ex:suitableForReadingLevel>Intermediate</ex:suitableForReadingLevel>
     </rdf:Description>
 
 </rdf:RDF>

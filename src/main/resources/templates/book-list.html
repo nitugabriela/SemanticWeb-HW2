@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8"/>
+    <meta name="page-type" content="book-list"/>
     <title>All Books</title>
     <style>
         body { font-family: 'Segoe UI', sans-serif; background: #f4f7f6; color: #333; max-width: 860px; margin: 0 auto; padding: 2rem; }
@@ -46,6 +47,6 @@
         </tbody>
     </table>
 </div>
-
+<div th:replace="~{fragments/chatbotWidget :: chat}"></div>
 </body>
 </html>

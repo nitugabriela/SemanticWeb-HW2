@@ -20,20 +20,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function loadStarters() {
         startersArea.innerHTML = "";
-        const currentUrl = window.location.pathname;
+        const pageType = document.querySelector("meta[name='page-type']")?.content;
+        const bookTitle = document.querySelector("meta[name='page-book-title']")?.content;
         let starters = [];
 
-        if (currentUrl.includes("/book/")) {
+        if (pageType === "book-detail" && bookTitle) {
             starters = [
-                "What is the theme of this book?",
-                "Who is the author of this book?",
-                "Is this book suitable for a Beginner reader?"
+                `Who is the author of "${bookTitle}"?`,
+                `What is the theme of "${bookTitle}"?`,
+                `What reading level is "${bookTitle}" suitable for?`
+            ];
+        } else if (pageType === "book-list") {
+            starters = [
+                "What book am I most likely to enjoy from this list?",
+                "Can you recommend a Science Fiction book?",
+                "Which books are available for Beginner readers?"
             ];
         } else {
             starters = [
-                "What is a book that I am most likely to enjoy from this list?",
-                "Can you recommend a Science Fiction book?",
-                "What books are suitable for Advanced readers?"
+                "Can you recommend a book?",
+                "What books are in the database?",
+                "Tell me about The Silent Patient."
             ];
         }
 

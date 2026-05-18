@@ -2,6 +2,8 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8"/>
+    <meta name="page-type" content="book-detail"/>
+    <meta name="page-book-title" th:content="${book['label']}"/>
     <title th:text="${book['label']} + ' - Book Details'">Book Details</title>
     <style>
         body {
@@ -95,6 +97,6 @@
         <div class="field-value" th:text="${book['uri']}">URI</div>
     </div>
 </div>
-
+<div th:replace="~{fragments/chatbotWidget :: chat}"></div>
 </body>
 </html>

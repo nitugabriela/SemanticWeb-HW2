@@ -105,6 +105,6 @@
 <div class="graph-container" th:if="${graphImage != null}">
     <img th:src="${graphImage}" alt="RDF Graph visualized by Jung API" />
 </div>
-
+<div th:replace="~{fragments/chatbotWidget :: chat}"></div>
 </body>
 </html>
